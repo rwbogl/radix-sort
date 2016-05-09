@@ -70,18 +70,14 @@ unsigned int ipow(int base, int exp)
  * 5.2.5.
  *
  * After this algorithm is run, queues[0]->front points to the first element in
- * the list, or is NULL if the list was entirely empty.
- *
- * Because we aren't using void pointers, this has a slight edge case with
- * queues[0], detailed below. */
+ * the list, or is NULL if the list was entirely empty. Then
+ * queues[0]-front-next is the second element, and so on. */
 void queue_hookup(QUEUE **queues, int n)
 {
     NODE *P = NULL;
     int i = 0;
 
     while (1) {
-        /* As a consequence of the below while loop, queues[i] is never
-         * empty except for maybe when i = 0. */
         P = queues[i]->rear;
 
         /* Try to find the next non-empty queue. */
@@ -102,7 +98,7 @@ void queue_hookup(QUEUE **queues, int n)
              * place that can break, so queues[i] will never be empty after
              * this loop. */
             if (queues[i]->front != NULL) {
-                /* P = NULL only on the first time this loop runs, meaning
+                /* P = NULL only on the first time the outer loop runs, meaning
                  * that queues[0] was empty and needs special treatment to
                  * link. */
                 if (P != NULL) {
@@ -117,13 +113,13 @@ void queue_hookup(QUEUE **queues, int n)
     }
 }
 
-/* Perform a radix sort on the given non-negative integer inputs.
- * This particular implementation is fairly low-level, and follows Algorithm R
- * given in TAOCP 5.2.5 as closely as possible. The main difficulty with
- * recreating the algorithm in C is that the steps are given fairly
- * non-linearly, i.e. with lots of implicit gotos, and Knuth assumes that there
- * are no such things as "types" or "higher-level constructs." Various comments
- * throughout indicate where this differs from Algorithm R. */
+/* Perform a radix sort on the given non-negative integer inputs. This
+ * particular implementation is fairly low-level, and follows Algorithm R given
+ * in TAOCP 5.2.5 as closely as possible. The main difficulty with recreating
+ * the algorithm in C is that the steps are given fairly non-linearly, i.e.
+ * with lots of implicit gotos, and Knuth assumes that there are no such things
+ * as "types" or "higher-level constructs." Comments throughout indicate where
+ * this differs from Algorithm R. */
 NODE *radix_sort(unsigned int *inputs, int n, int radix, int length)
 {
     /* Create the needed queues. */
