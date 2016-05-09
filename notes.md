@@ -154,3 +154,8 @@ And now with much shorter numbers:
     length in base-10: 2
     radix sort time: 22.000000ms
     qsort time: 36.000000ms
+
+
+---
+colorlinks: true
+---
