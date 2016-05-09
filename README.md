@@ -3,7 +3,7 @@
 This is an implementation of the radix sort described in _The Art of Computer
 Programming: Sorting and Searching_ section 5.2.5. The radix sort is
 interesting in that it may be as close as sorts come to operating in O(n) time.
-For a general overview, see [notes.pdf](./notes.pdf). For a in-depth
+For a general overview, see [notes.pdf](./notes.pdf). For an in-depth
 explanation, see the chapter in TAOCP.
 
 Here are example runs on sorting random data compared to the C library's
