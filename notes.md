@@ -1,10 +1,17 @@
 # The Radix Sort
 
-As a disclaimer, those that are actually interested in a complete and in-depth
-discussion about the radix sort should go read _The Art of Computer
-Programming: Sorting and Searching_, section 5.2.5. Knuth gives the radix sort
-a very nice treatment, although he does keep things lower-level than most. With
-that out of the way, _here be dragons._
+Two disclaimers:
+
+1. This document uses a lot of \LaTeX, and doesn't look very nice on GitHub.
+Look at [the PDF version of it](./notes.pdf) to get the full effect, or compile
+it with `pandoc`.
+
+2. Those that are actually interested in a complete and in-depth discussion
+about the radix sort should go read _The Art of Computer Programming: Sorting
+and Searching_, section 5.2.5. Knuth gives a very nice treatment, although he
+does keep things lower-level than most.
+
+With these out of the way, _here be dragons._
 
 ## The Rub
 
